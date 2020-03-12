@@ -2,7 +2,7 @@
 /**
  * Update site to use test mode in local and staging environments
  */
-function prefix_env_settings() {
+function update_staging_env() {
 	// If settings have already been updated, return early, unless we are forcing update with query string &update-staging=true
 	if ( 1 == get_transient( 'staging-settings-updated' ) && 'true' != $_GET['update-staging'] ) {
 		return;
@@ -25,4 +25,4 @@ function prefix_env_settings() {
 		error_log( 'staging-settings-updated' );
 	}
 }
-add_action( 'init', 'prefix_env_settings' );
+add_action( 'init', 'update_staging_env' );
