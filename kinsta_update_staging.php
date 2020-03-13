@@ -10,7 +10,7 @@ function update_staging_env() {
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	
 	// If site url is a kinsta staging environment
-	if ( preg_match( '/staging-\w*.kinsta.cloud/', $site_url ) ) {
+	if ( preg_match( '/staging-\w*.kinsta.cloud/', site_url() ) ) {
 		// Use Stripe in test mode
 		$woocommerce_stripe_settings = get_option( 'woocommerce_stripe_settings', array() );
 		/*if ( 'yes' != $woocommerce_stripe_settings['testmode'] ) {
